@@ -24,9 +24,9 @@ DROP TABLE IF EXISTS `almacenes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `almacenes` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` text COLLATE utf8_spanish2_ci,
-  `localizacion` text COLLATE utf8_spanish2_ci,
-  `responsable` text COLLATE utf8_spanish2_ci,
+  `nombre` text CHARACTER SET utf8 COLLATE utf8_spanish2_ci,
+  `localizacion` text CHARACTER SET utf8 COLLATE utf8_spanish2_ci,
+  `responsable` text CHARACTER SET utf8 COLLATE utf8_spanish2_ci,
   `tipo` tinyint DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `existencias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `existencias` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `existencias` int DEFAULT NULL,
   `productos_id` int NOT NULL,
   `almacenes_id` int NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `existencias` (
   KEY `fk_existencias_almacenes1_idx` (`almacenes_id`),
   CONSTRAINT `fk_existencias_almacenes1` FOREIGN KEY (`almacenes_id`) REFERENCES `almacenes` (`id`),
   CONSTRAINT `fk_existencias_productos1` FOREIGN KEY (`productos_id`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `marcas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marcas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `descripcion` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish2_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -104,17 +104,17 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productos` (
-  `id` int NOT NULL,
-  `sku` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
-  `descripcion` text COLLATE utf8_spanish2_ci NOT NULL,
-  `color` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sku` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `descripcion` text CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `color` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `marcas_id` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `sku_UNIQUE` (`sku`),
   KEY `fk_productos_marcas_idx` (`marcas_id`),
   CONSTRAINT `fk_productos_marcas` FOREIGN KEY (`marcas_id`) REFERENCES `marcas` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,4 +239,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-11 11:20:44
+-- Dump completed on 2021-04-11 15:39:06

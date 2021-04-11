@@ -7,7 +7,6 @@ class Productos{
     public $productos_id;
     public $almacenes_id;
 
-
     public function __construct(){
         try{
             $this->cnx=Conexion::conectar();
@@ -49,11 +48,11 @@ class Productos{
         }
     }
 
-    public function registrar (Productos $data){
+    public function registrar(Productos $data){
         try{
             $query = "insert into existencias(existencias, productos_id, almacenes_id) values(?, ?, ?)";
-            $this->cnx->prepare(query)->execute(array($data->existencias, $data->productos_id, $data->almacenes_id));
-
+            echo $data;
+            //$this->cnx->prepare($query)->execute(array($data->existencias, $data->productos_id, $data->almacenes_id));
         }catch(Exception $e){
             die($e->getMessage());
         }

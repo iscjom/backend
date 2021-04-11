@@ -35,7 +35,8 @@ class ProductosControl{
         $registro->existencias = $_POST['txtExistencias'];
         $registro->productos_id = $_POST['cmbProducto'];
         $registro->almacenes_id = $_POST['cmbAlmacen'];
-        $this->model->registrar($registro);
-        header("Location: index.php");
+        echo $registro;
+        //$this->model->registrar($registro);
+        //header("Location: index.php");
     }
 }
