@@ -1,15 +1,15 @@
 <?php
 
-include_once 'Model/mdlVirtual.php';
+include_once 'Model/VwVirtual.php';
 
 class TVirtualControl{
     public $model;
 
     public function __construct(){
-        $this->model = new TVirtual();
+        $this->model = new VwVirtual();
     }
 
     public function index(){
-        include_once 'View/vwVirtual.php';
+        include_once 'View/viewVirtual.php';
     }
 }

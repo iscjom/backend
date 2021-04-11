@@ -39,7 +39,7 @@ class Productos{
 
     public function listarAlmacen(){
         try {
-            $query = "SELECT id, nombre FROM almacenes";
+            $query = "SELECT * FROM almacenes order by id";
             $smt = $this->cnx->prepare($query);
             $smt->execute();
             return $smt->fetchAll(PDO::FETCH_OBJ);
@@ -48,14 +48,5 @@ class Productos{
         }
     }
 
-    public function registrar(Productos $data){
-        try{
-            $query = "insert into existencias(existencias, productos_id, almacenes_id) values(?, ?, ?)";
-            echo $data;
-            //$this->cnx->prepare($query)->execute(array($data->existencias, $data->productos_id, $data->almacenes_id));
-        }catch(Exception $e){
-            die($e->getMessage());
-        }
-    }
 
 }

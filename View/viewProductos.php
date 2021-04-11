@@ -13,8 +13,8 @@
 <body>
 <h1 class="page-header text-center">Productos </h1>
 <div class="well well-sm text-center">
-    <a class="btn btn-primary" href="?c=fisica&a=index">Tienda Física</a>
-    <a class="btn btn-primary" href="?c=virtual&a=index">Tienda Virtual</a>
+    <a class="btn btn-primary" href="?c=ProductosControl&a=fisica">Tienda Física</a>
+    <a class="btn btn-primary" href="?c=ProductosControl&a=virtual">Tienda Virtual</a>
 </div>
 
 <table class="table table-striped">

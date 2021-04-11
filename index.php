@@ -8,6 +8,6 @@ if(!isset($_REQUEST['c'])){
     $controller->index();
 } else {
     //en caso de haber petición
-    $action = $_REQUEST['c'];
+    $action = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'index';
     call_user_func(array($controller, $action));
 }

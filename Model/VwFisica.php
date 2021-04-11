@@ -1,5 +1,5 @@
 <?php
-class TFisica{
+class VwFisica{
     public $cnx;
     public function __construct(){
         try{

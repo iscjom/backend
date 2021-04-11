@@ -1,5 +1,5 @@
 <?php
-class Almacen{
+class VwVirtual{
     public $cnx;
     public function __construct(){
         try{
@@ -9,9 +9,9 @@ class Almacen{
         }
     }
 
-    public function listarAlmacen(){
+    public function listar(){
         try {
-            $query = "SELECT * FROM almacenes order by id";
+            $query = "SELECT * FROM vwvirtual";
             $smt = $this->cnx->prepare($query);
             $smt->execute();
             return $smt->fetchAll(PDO::FETCH_OBJ);
@@ -19,5 +19,4 @@ class Almacen{
             die($e->getMessage());
         }
     }
-
 }
