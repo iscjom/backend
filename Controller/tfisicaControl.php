@@ -1,6 +1,6 @@
 <?php
 
-include_once 'Model/tfisica.php';
+include_once 'Model/mdlFisica.php';
 
 class TFisicaControl{
     public $model;
@@ -10,6 +10,6 @@ class TFisicaControl{
     }
 
     public function index(){
-        include_once 'View/fisica.php';
+        include_once 'View/vwFisica.php';
     }
 }

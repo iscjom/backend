@@ -1,6 +1,6 @@
 <?php
 
-include_once 'Model/tvirtual.php';
+include_once 'Model/mdlVirtual.php';
 
 class TVirtualControl{
     public $model;
@@ -10,6 +10,6 @@ class TVirtualControl{
     }
 
     public function index(){
-        include_once 'View/virtual.php';
+        include_once 'View/vwVirtual.php';
     }
 }

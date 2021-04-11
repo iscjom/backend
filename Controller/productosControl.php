@@ -1,6 +1,6 @@
 <?php
 
-include_once 'Model/productos.php';
+include_once 'Model/mdlProductos.php';
 
 class ProductosControl{
     public $model;
@@ -10,7 +10,7 @@ class ProductosControl{
     }
 
     public function index(){
-        include_once 'View/productos.php';
+        include_once 'View/vwProductos.php';
 
     }
 
@@ -24,5 +24,18 @@ class ProductosControl{
         include_once 'Controller/tvirtualControl.php';
         $tVirtualController = new TvirtualControl();
         $tVirtualController->index();
+    }
+
+    public function nuevo(){
+        include_once 'View/vwNewProducto.php';
+    }
+
+    public function guardar(){
+        $registro = new mdlProductos();
+        $registro->existencias = $_POST['txtExistencias'];
+        $registro->productos_id = $_POST['cmbProducto'];
+        $registro->almacenes_id = $_POST['cmbAlmacen'];
+        $this->model->registrar($registro);
+        header("Location: index.php");
     }
 }
