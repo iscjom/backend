@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `backenddb` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `backenddb`;
 -- MySQL dump 10.13  Distrib 8.0.22, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: backenddb
@@ -52,7 +50,7 @@ DROP TABLE IF EXISTS `existencias`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `existencias` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `existencias` int DEFAULT NULL,
   `productos_id` int NOT NULL,
   `almacenes_id` int NOT NULL,
@@ -106,7 +104,7 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productos` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `sku` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `descripcion` text COLLATE utf8_spanish2_ci NOT NULL,
   `color` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
@@ -138,6 +136,7 @@ DROP TABLE IF EXISTS `vwfisico`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwfisico` AS SELECT 
+ 1 AS `id`,
  1 AS `sku`,
  1 AS `descripcion`,
  1 AS `marca`,
@@ -169,6 +168,7 @@ DROP TABLE IF EXISTS `vwvirtual`;
 SET @saved_cs_client     = @@character_set_client;
 /*!50503 SET character_set_client = utf8mb4 */;
 /*!50001 CREATE VIEW `vwvirtual` AS SELECT 
+ 1 AS `id`,
  1 AS `sku`,
  1 AS `descripcion`,
  1 AS `marca`,
@@ -189,7 +189,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`jolguin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `vwfisico` AS select `p`.`sku` AS `sku`,`p`.`descripcion` AS `descripcion`,`m`.`descripcion` AS `marca`,`e`.`existencias` AS `existencias`,`a`.`nombre` AS `nombre` from (((`productos` `p` join `marcas` `m` on((`p`.`marcas_id` = `m`.`id`))) join `existencias` `e` on((`e`.`productos_id` = `p`.`id`))) join `almacenes` `a` on((`e`.`almacenes_id` = `a`.`id`))) where (`a`.`tipo` = 1) order by `a`.`id`,`p`.`sku` */;
+/*!50001 VIEW `vwfisico` AS select `p`.`id` AS `id`,`p`.`sku` AS `sku`,`p`.`descripcion` AS `descripcion`,`m`.`descripcion` AS `marca`,`e`.`existencias` AS `existencias`,`a`.`nombre` AS `nombre` from (((`productos` `p` join `marcas` `m` on((`p`.`marcas_id` = `m`.`id`))) join `existencias` `e` on((`e`.`productos_id` = `p`.`id`))) join `almacenes` `a` on((`e`.`almacenes_id` = `a`.`id`))) where (`a`.`tipo` = 1) order by `a`.`id`,`p`.`sku` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -225,7 +225,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`jolguin`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `vwvirtual` AS select `p`.`sku` AS `sku`,`p`.`descripcion` AS `descripcion`,`m`.`descripcion` AS `marca`,`e`.`existencias` AS `existencias`,`a`.`nombre` AS `nombre` from (((`productos` `p` join `marcas` `m` on((`p`.`marcas_id` = `m`.`id`))) join `existencias` `e` on((`e`.`productos_id` = `p`.`id`))) join `almacenes` `a` on((`e`.`almacenes_id` = `a`.`id`))) where (`a`.`tipo` = 0) order by `a`.`id`,`p`.`sku` */;
+/*!50001 VIEW `vwvirtual` AS select `p`.`id` AS `id`,`p`.`sku` AS `sku`,`p`.`descripcion` AS `descripcion`,`m`.`descripcion` AS `marca`,`e`.`existencias` AS `existencias`,`a`.`nombre` AS `nombre` from (((`productos` `p` join `marcas` `m` on((`p`.`marcas_id` = `m`.`id`))) join `existencias` `e` on((`e`.`productos_id` = `p`.`id`))) join `almacenes` `a` on((`e`.`almacenes_id` = `a`.`id`))) where (`a`.`tipo` = 0) order by `a`.`id`,`p`.`sku` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -239,4 +239,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-10 23:47:21
+-- Dump completed on 2021-04-11 11:20:44
