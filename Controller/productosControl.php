@@ -15,10 +15,14 @@ class ProductosControl{
     }
 
     public function fisica(){
-        include_once 'View/fisica.php';
+        include_once 'Controller/tfisicaControl.php';
+        $tFisicaController = new TFisicaControl();
+        $tFisicaController->index();
     }
 
     public function virtual(){
-        include_once 'View/virtual.php;'
+        include_once 'Controller/tvirtualControl.php';
+        $tVirtualController = new TvirtualControl();
+        $tVirtualController->index();
     }
 }

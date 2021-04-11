@@ -13,7 +13,7 @@
 <body>
 <h1 class="page-header text-center">Almacenes físicos </h1>
 <div class="well well-sm text-center">
-    <a class="btn btn-primary" href="?c=fisica&a=index">Nuevo Producto</a>
+    <a class="btn btn-primary" href="?c=tfisica&a=nuevo">Nuevo Producto</a>
 </div>
 
 <table class="table table-striped">
@@ -29,11 +29,28 @@
         <tr>
             <td><?php echo $p->sku; ?></td>
             <td><?php echo $p->descripcion; ?></td>
-            <td><?php echo $p->color; ?></td>
             <td><?php echo $p->marca; ?></td>
+            <td><?php echo $p->existencias; ?></td>
+            <td><?php echo $p->nombre; ?></td>
+            <td>
+                <i class="glyphicon glyphicon-edit"><a href="?c=tfisica&a=edit&id=<?php echo $p->id; ?>"> Editar</a></i>
+            </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+<div class="row">
+    <div class="col-xs-12">
+        <hr />
+        <footer class="text-center well">
+            <p>Backend | Juan Manuel Olguin Medina | iscjom@gmail.com</a></p>
+        </footer>
+    </div>
+</div>
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script src="assets/js/ini.js"></script>
+<script src="assets/js/jquery.anexsoft-validator.js"></script>
 </body>
 </html>
