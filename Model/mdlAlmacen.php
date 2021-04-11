@@ -1,5 +1,5 @@
 <?php
-class TFisica{
+class Almacen{
     public $cnx;
     public function __construct(){
         try{
@@ -9,9 +9,9 @@ class TFisica{
         }
     }
 
-    public function listar(){
+    public function listarAlmacen(){
         try {
-            $query = "SELECT * FROM vwfisico";
+            $query = "SELECT * FROM almacenes order by id";
             $smt = $this->cnx->prepare($query);
             $smt->execute();
             return $smt->fetchAll(PDO::FETCH_OBJ);
@@ -19,4 +19,5 @@ class TFisica{
             die($e->getMessage());
         }
     }
+
 }
