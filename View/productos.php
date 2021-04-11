@@ -1,4 +1,4 @@
-<h1 class="page-header">Productos </h1>
+<h1 class="page-header" align="center">Productos </h1>
 <div class="well well-sm text-center">
     <a class="btn btn-primary" href="?c=Productos&a=Crud">Tienda Física</a>
     <a class="btn btn-primary" href="?c=Productos&a=Crud">Tienda Virtual</a>
