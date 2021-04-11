@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Productos</title>
+    <title>Alm. Físico</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="Resources/css/bootstrap.min.css" />
     <link rel="stylesheet" href="Resources/css/bootstrap-theme.min.css" />
@@ -11,18 +11,18 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
 <body>
-<h1 class="page-header text-center">Productos </h1>
+<h1 class="page-header text-center">Almacenes físicos </h1>
 <div class="well well-sm text-center">
-    <a class="btn btn-primary" href="?c=fisica&a=index">Tienda Física</a>
-    <a class="btn btn-primary" href="?c=virtual&a=index">Tienda Virtual</a>
+    <a class="btn btn-primary" href="?c=fisica&a=index">Nuevo Producto</a>
 </div>
 
 <table class="table table-striped">
     <thead>
     <th>SKU</th>
     <th>Descripcion</th>
-    <th>Color</th>
     <th>Marca</th>
+    <th>Existencias</th>
+    <th>Almacen</th>
     </thead>
     <tbody>
     <?php foreach($this->model->Listar() as $p): ?>

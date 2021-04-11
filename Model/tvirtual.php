@@ -1,5 +1,5 @@
 <?php
-class Productos{
+class TVirtual{
     public $cnx;
     public function __construct(){
         try{
@@ -11,7 +11,7 @@ class Productos{
 
     public function listar(){
         try {
-            $query = "SELECT * FROM vwproductos";
+            $query = "SELECT * FROM vwvirtual";
             $smt = $this->cnx->prepare($query);
             $smt->execute();
             return $smt->fetchAll(PDO::FETCH_OBJ);

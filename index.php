@@ -1,22 +1,13 @@
 <?php
-require_once 'Model/conexion.php';
-$controller = 'productos';
+include_once 'Controller/productosControl.php';
+include_once 'Config/conexion.php';
+$controller = new ProductosControl();
 
-//se crea el controlador para utilizar en el frontend
+//petición inicial al no haber nada
 if(!isset($_REQUEST['c'])){
-    require_once "Controller/productos.controller.php";
-    $controller = ucwords($controller) . 'Controller';
-    $controller = new $controller;
-    $controller->Index();
+    $controller->index();
 } else {
-    //se busca el controlador a cargar
-    $controller = strtolower($_REQUEST ['c']);
-    $action = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';
-    //se instancia el controlador
-    require_once "Controller/productos.controller.php";
-    $controller = ucwords($controller) . "Controller";
-    $controller = new $controller;
-    //llamada a las acciones a ejecutar
+    //en caso de haber petición
+    $action = $_REQUEST['c'];
     call_user_func(array($controller, $action));
 }
-?>
